@@ -2,6 +2,7 @@ const person = {
     firstName: 'Marek',
     address: {
         street: 'Legnicka',
+        streetNo: 0,
         city: 'Wroclaw'
     },
     sayHello() {
@@ -9,17 +10,10 @@ const person = {
     }
 }
 
+// false, 0, '', NaN, null, undefined
 
-class Person {
-    constructor(firstName, lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    sayHello() {
-        return 'Hello, I am ' + this.firstName;
-    }
-}
-
-const marek = new Person('Marek', 'Matczak');
-console.log(marek.sayHello());
+// const city = person && person.address && person.address.city;
+const streetNo = person?.address?.streetNo;
+// console.log(streetNo || 'unknown number');
+// console.log(streetNo != null ? streetNo || 'unknown number');
+console.log(streetNo ?? 'unknown number');
